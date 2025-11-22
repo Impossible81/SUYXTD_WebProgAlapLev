@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+
+    <style>
+        .grid {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 2,5fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 1rem;
+            width: 40rem;
+        }
+
+        footer {
+            border-top: 2rem;
+            margin-top: 2rem;
+            width: 37,5rem;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    </header>
+
+    <section>
+        <video src="SUYXTD_video.mp4" id="video" autoplay="false" controls
+        width="600"><</video>
+
+        <div class="grid">
+            <div>
+                <button id="start">Indítás</button>
+                <button id="stop">Leállítás</button>
+            </div>
+            <div>
+                <button id="startstop">Indítás/Leállítás</button>
+            </div>
+            <div>
+                <button id="mute">Néma</button>
+                <button id="quite">Halk</button>
+                <button id="lopud">Hangos</button>
+            </div>
+            <div>
+                <button id="veryslow">Nagyon lassú</button>
+                <button id="slow">Lasú</button>
+                <button id="normal">Normal</button>
+                <button id="fast">Gyors</button>
+                <button id="veryfast">Nagyongyors</button>
+            </div>
+            <div>
+                <button id="small">Kicsi</button>
+                <button id="normalsize">Normal</button>
+                <button id="big">Nagy</button>
+            </div>
+            <div>
+                <button id="hasitended">Befejeződött</button>
+                <button id="leight">Videó hossza</button>
+                <button id="currently">Jelenlegi pozició</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        Forrás: <a hef="https://www.w3schools.com/html/html5_video.
+        asp">https://www.w3schools.com/html/html_5video.asp</a>
+    </footer>
+
+    <script>
+        let btnClick = (id, onlick) => document.getElementById(id).
+        addEventListener("click",  onlick);
+        //A getElementById("video") megkeresi azt a HTML elemet, amelynek az id attributuma "video"
+
+        const video = document.querySelector("video");
+
+        btnClick("start",    () => video.play());
+        btnClick("stop",    () => video.pause());
+        btnClick("startstop",    () => video.pause());
+
+        btnClick("mute",    () => video.volume = 0);
+         btnClick("quite",    () => video.volume = 0,5);
+        btnClick("loud",    () => video.volume = 1);
+
+           
+        btnClick("veryslow",    () => video.playbackRate = 0,5);
+        btnClick("slow",    () => video.playbackRate = 0,75);
+        btnClick("normal",    () => video.playbackRate = 1);
+        btnClick("fast",    () => video.playbackRate = 1,25);
+        btnClick("veryfast",    () => video.playbackRate = 1,5);
+
+        btnClick("smal",    () => video.width = 400);
+        btnClick("normalsize",    () => video.width = 600);
+        btnClick("big",    () => video.width = 800);
+
+        btnClick("hasitended",    () => alert(video.ended));
+        btnClick("length",    () => alert(video.duration));
+        btnClick("currently",    () => alert(video.currentTime));
+    </script>
+    
+</body>
+</html>
